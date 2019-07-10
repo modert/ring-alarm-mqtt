@@ -372,12 +372,14 @@ async function setLockTargetState(location, deviceId, message) {
     debug('Location Id: '+ location.locationId)
     
     const command = message.toLowerCase()
-    
+    var device = location.devices.find(device => {
+      return device.data.deviceId === deviceId
+    })
     
     switch(command) {
         case 'lock':
             debug('Lock: lock.'+ command)
-            location.sendCommand(deviceId, {
+            device.sendCommand(deviceId, {
                 command: {
                     v1: [
                         {
@@ -390,7 +392,7 @@ async function setLockTargetState(location, deviceId, message) {
             break;
         case 'unlock':
             debug('Unlock: lock.'+ command)
-            location.sendCommand(deviceId, {
+            device.sendCommand(deviceId, {
                 command: {
                     v1: [
                         {
