@@ -377,7 +377,7 @@ async function setLockTargetState(location, deviceId, message) {
     switch(command) {
         case 'lock':
             debug('Lock: lock.'+ command)
-            location.setDeviceInfo(deviceId, {
+            location.sendCommand(deviceId, {
                 command: {
                     v1: [
                         {
@@ -390,7 +390,7 @@ async function setLockTargetState(location, deviceId, message) {
             break;
         case 'unlock':
             debug('Unlock: lock.'+ command)
-            location.setDeviceInfo(deviceId, {
+            location.sendCommand(deviceId, {
                 command: {
                     v1: [
                         {
