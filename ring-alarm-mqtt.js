@@ -373,9 +373,7 @@ async function setLockTargetState(location, deviceId, message) {
     
     const command = message.toLowerCase()
     const devices = await location.getDevices()
-    const device = devices.find(device => {
-      return device.data.deviceId === deviceId
-    })
+    const device = await devices.find(device => device.data.zid === deviceId)
     
     switch(command) {
         case 'lock':
