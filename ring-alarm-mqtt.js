@@ -370,10 +370,10 @@ async function setAlarmMode(location, deviceId, message) {
 async function setLockTargetState(location, deviceId, message) {
     debug('Received set lock state '+message+' for lock Id: '+deviceId)
     debug('Location Id: '+ location.locationId)
-    debug('Test: '+ lock.${command})
     
     const command = message.toLowerCase()
-
+    debug('Test: '+ lock.${command})
+    
     switch(command) {
         case 'lock':
         case 'unlock':
