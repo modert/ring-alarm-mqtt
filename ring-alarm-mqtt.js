@@ -372,7 +372,8 @@ async function setLockTargetState(location, deviceId, message) {
     debug('Location Id: '+ location.locationId)
     
     const command = message.toLowerCase()
-    var device = location.devices.find(device => {
+    const devices = await location.getDevices()
+    const device = devices.find(device => {
       return device.data.deviceId === deviceId
     })
     
