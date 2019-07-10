@@ -371,20 +371,11 @@ async function setLockTargetState(location, deviceId, message) {
     debug('Received set lock state '+message+' for lock Id: '+deviceId)
     debug('Location Id: '+ location.locationId)
     
-    const command = message.toLowerCase() === 'lock' ? 'lock' : 'unlock'
+    const command = message.toLowerCase()
     const devices = await location.getDevices()
     const device = await devices.find(device => device.data.zid === deviceId)
-                
-    debug('Command: lock.'+ command)
-    device.sendCommand('lock.' + command)
     
-    switch(command) {
-        case 'lock', 'unlock':
-
-            break;
-        default:
-            debug('Received invalid command for lock!')
-    }
+    device.sendCommand('lock.' + command)
 }
 
 // Process received MQTT command
