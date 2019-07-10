@@ -372,7 +372,7 @@ async function setLockTargetState(location, deviceId, message) {
     debug('Location Id: '+ location.locationId)
     
     const command = message.toLowerCase()
-    debug('Test: '+ lock.${command})
+    debug('Test: lock.${command}')
     
     switch(command) {
         case 'lock':
